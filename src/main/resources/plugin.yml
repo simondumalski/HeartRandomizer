@@ -1,0 +1,14 @@
+name: HeartRandomizer
+version: '${project.version}'
+main: me.simondumalski.heartrandomizer.Main
+api-version: 1.16
+authors: [ Saymoan ]
+description: '${project.description}'
+commands:
+  heartrandomizer:
+    description: Main heart randomizer command
+    aliases: [ hr ]
+permissions:
+  heartrandomizer.admin:
+    description: Allows for administrative HeartRandomizer commands
+    default: op

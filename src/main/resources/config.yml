@@ -1,0 +1,69 @@
+# Heart randomizer recipe
+# Put a blank space for nothing and any character for a material
+# Case-sensitive
+# Default:
+# D D
+#  N
+# D D
+recipe:
+  top-slots: 'D D'
+  middle-slots: ' N '
+  bottom-slots: 'D D'
+
+# Heart randomizer recipe dictionary
+# Each unique character specified in the recipe must have a corresponding material
+# Case-sensitive
+# Default:
+# D: DIAMOND
+# N: NETHER_STAR
+recipe-dictionary:
+  D: 'DIAMOND'
+  N: 'NETHER_STAR'
+
+# Configuration options for the heart randomizer item
+# Min and max values must be greater than 0
+heart-randomizer:
+  name: '&cHeart &dRandomizer'
+  lore:
+    - '&7Randomize your max health.'
+    - ''
+    - '&e[RIGHT-CLICK]'
+  material: 'NETHER_STAR'
+  min: 5
+  max: 15
+
+# Messages that will be sent to the player or the server console
+messages:
+  plugin:
+    prefix: '&8[&eHeart&dRandomizer&8]&r'
+    help:
+      - '&eHeart&dRandomizer &8(&av%version%&8)'
+      - '&8------------------------------'
+      - '&e/heartrandomizer help &8- &7Displays this help menu.'
+      - '&e/heartrandomizer set <player> <hearts> &8- &7Manually set <player>''s max health.'
+      - '&e/heartrandomizer reset <player> &8- &7Reset <player>''s max health.'
+      - '&e/heartrandomizer give <player> &8- &7Give <player> a heart randomizer.'
+      - '&8------------------------------'
+  errors:
+    unknown-command: '%prefix% &cUnknown command!'
+    insufficient-permissions: '%prefix% &cInsufficient permissions!'
+    invalid-usage: '%prefix% &cInvalid usage!'
+    invalid-player: '%prefix% &cTarget player is invalid!'
+    invalid-health: '%prefix% &cInvalid health!'
+    target-inventory-full: '%prefix% &cTarget player''s inventory is full!'
+    changing-max-health: '%prefix% &cError changing max-health! Contact the server administrator.'
+  # The following errors will be shown in the console and not in-game
+  server-errors:
+    max-value: '&cInvalid min value in the config.yml!'
+    min-value: '&cInvalid min value in the config.yml!'
+    max-health-attribute: '&cError getting player max-health attribute!'
+    recipe-top-slots: '&cRecipe top slots are invalid!'
+    recipe-middle-slots: '&cRecipe middle slots are invalid!'
+    recipe-bottom-slots: '&cRecipe bottom slots are invalid!'
+    recipe-dictionary: '&cRecipe dictionary is invalid!'
+  events:
+    heart-randomizer-use: '%prefix% &aHealth has been randomized! New max-health: &e%args0% hearts&6.'
+  commands:
+    set: '%prefix% &e%args0%&a''s health has been set to &e%args1% hearts&a.'
+    reset: '%prefix% &e%args0%&a''s health has been reset.'
+    give: '%prefix% &e%args0% &ahas been given a heart-randomizer.'
